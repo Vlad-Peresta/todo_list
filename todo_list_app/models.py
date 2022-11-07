@@ -1,3 +1,4 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
@@ -11,3 +12,7 @@ class Task(models.Model):
 class Tag(models.Model):
     tag_name = models.CharField(max_length=63)
     tasks = models.ManyToManyField(Task, related_name="tags")
+
+
+class User(AbstractUser):
+    pass
