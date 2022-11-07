@@ -19,15 +19,25 @@
     <ul>
       <li><strong>{{ task.content }}</strong>
 
-      {% if task.task_status %}
-        <strong>Done</strong>
+      {% if task.task_status is True %}
+        <strong style="color: green">Done</strong>
+        <a href="{% url 'todo_list_app:change_task_status' pk=task.id %}"
+           class="btn btn-secondary link-to-page"
+        >
+          Undo
+        </a>
       {% else %}
-        <strong>Not done</strong>
+        <strong style="color: red">Not done</strong>
+        <a href="{% url 'todo_list_app:change_task_status' pk=task.id %}"
+           class="btn btn-success link-to-page"
+        >
+          Complete
+        </a>
       {% endif %}
-        <a href="" class="btn btn-primary link-to-page">Complete</a>
+
       </li>
       <li>
-      Created {{ task.datetime }}
+      Created: {{ task.datetime }}
       </li>
       <li>
         Tags:

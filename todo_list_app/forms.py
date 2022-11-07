@@ -1,11 +1,22 @@
-# from django import forms
+from django import forms
+
+from todo_list_app.models import Tag
+
 #
-# from todo_list_app.models import Task, Tag
+# class TagForm(forms.ModelForm):
+#     tags = forms.ModelMultipleChoiceField(
+#         queryset=Tag.objects,
+#         widget=forms.CheckboxSelectMultiple
+#     )
+#
+#     class Meta:
+#         model = Tag
+#         fields = "__all__"
 #
 #
-# class TaskCreationForm(forms.ModelForm):
-#     model = Task
-#
-#
-# class TagCreationForm(forms.ModelForm):
-#     model = Tag
+
+
+
+
+
+

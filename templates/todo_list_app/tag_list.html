@@ -3,7 +3,14 @@
 
 {% block content %}
 
-  <h1>Tags</h1>
+  <h1>
+    Tags
+    <a href="{% url 'todo_list_app:tag-create' %}"
+       class="btn btn-primary link-to-page"
+    >
+      Add
+    </a>
+  </h1>
 
   {% if tag_list %}
     <table class="table">
@@ -18,10 +25,18 @@
           {{ tag.tag_name }}
         </td>
         <td>
-          <a href="{% url 'todo_list_app:tag-update' pk=tag.id %}">Update</a>
+          <a href="{% url 'todo_list_app:tag-update' pk=tag.id %}"
+             class="btn btn-secondary btn-sm"
+          >
+            Update
+          </a>
         </td>
         <td>
-          <a href="{% url 'todo_list_app:tag-delete' pk=tag.id %}">Delete</a>
+          <a href="{% url 'todo_list_app:tag-delete' pk=tag.id %}"
+             class="btn btn-secondary btn-sm"
+          >
+            Delete
+          </a>
         </td>
       </tr>
       {% endfor %}
