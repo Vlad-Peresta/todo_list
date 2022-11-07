@@ -8,10 +8,19 @@ class Task(models.Model):
     deadline = models.DateTimeField(blank=True, null=True)
     task_status = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ["task_status", "-datetime"]
+
+    def __str__(self):
+        return f"{self.content}"
+
 
 class Tag(models.Model):
     tag_name = models.CharField(max_length=63)
     tasks = models.ManyToManyField(Task, related_name="tags")
+
+    def __str__(self):
+        return f"{self.tag_name}"
 
 
 class User(AbstractUser):

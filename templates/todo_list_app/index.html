@@ -32,7 +32,7 @@
       <li>
         Tags:
         <a href="{% url 'todo_list_app:task-update' pk=task.id %}">Update</a>
-        <a href="">Delete</a>
+        <a href="{% url 'todo_list_app:tag-delete' pk=task.id %}">Delete</a>
         <ul>
           {% for tag in task.tags.all %}
             <li>{{ tag.tag_name }}</li>

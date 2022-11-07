@@ -15,13 +15,13 @@
     {% for tag in tag_list %}
       <tr>
         <td>
-          <a href="">{{ tag.tag_name }}</a>
+          {{ tag.tag_name }}
         </td>
         <td>
-          <a href="{% url 'todo_list:task-update' pk=tag.id %}">Update</a>
+          <a href="{% url 'todo_list_app:tag-update' pk=tag.id %}">Update</a>
         </td>
         <td>
-          <a href="">Delete</a>
+          <a href="{% url 'todo_list_app:tag-delete' pk=tag.id %}">Delete</a>
         </td>
       </tr>
       {% endfor %}
