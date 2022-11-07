@@ -3,5 +3,50 @@
 
 {% block content %}
 
-  <h1>TODO list</h1>
+  <h1>
+    TODO list
+    <a
+      href="{% url 'todo_list_app:task-create' %}"
+      class="btn btn-primary link-to-page"
+    >
+      Add task
+    </a>
+  </h1>
+
+  <ul class="list-group list-group-flush">
+  {% for task in task_list %}
+    <li class="list-group-item">
+    <ul>
+      <li><strong>{{ task.content }}</strong>
+
+      {% if task.task_status %}
+        <strong>Done</strong>
+      {% else %}
+        <strong>Not done</strong>
+      {% endif %}
+        <a href="" class="btn btn-primary link-to-page">Complete</a>
+      </li>
+      <li>
+      Created {{ task.datetime }}
+      </li>
+      <li>
+        Tags:
+        <a href="{% url 'todo_list_app:task-update' pk=task.id %}">Update</a>
+        <a href="">Delete</a>
+        <ul>
+          {% for tag in task.tags.all %}
+            <li>{{ tag.tag_name }}</li>
+          {% empty %}
+            There are no tags
+          {% endfor %}
+
+        </ul>
+      </li>
+    </ul>
+    </li>
+    {% empty %}
+    There are no tasks
+  {% endfor %}
+  </ul>
+
 {% endblock %}
