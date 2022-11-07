@@ -20,4 +20,3 @@ python3 manage.py runserver
 ## Features
 
 * Managing tasks and directly from website
-
